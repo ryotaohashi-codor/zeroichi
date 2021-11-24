@@ -1,0 +1,10 @@
+{% block content %}
+
+{% block h1 %}新規案件申請{% endblock h1 %}
+
+<form action="" method="POST">{% csrf_token %}
+ {{ form.as_p }}
+ <input type='submit' value='申請する'>
+</form>
+
+{% endblock content %}
