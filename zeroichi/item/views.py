@@ -20,7 +20,7 @@ class ItemCheckView(UpdateView):
   model = ItemCheck
   template_name = 'item/itemcheck_update.html'
   success_url = reverse_lazy('item-list')
-  fields = ('comment', 'order_price')
+  fields = '__all__'
 
   def get_context_data(self, **kwargs):
     context = super(ItemCheckView, self).get_context_data(**kwargs)
