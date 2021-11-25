@@ -33,6 +33,7 @@
                     <th>住所</th>
                     <th>仕入金額</th>
                     <th>状況</th>
+                    <th></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -43,6 +44,7 @@
                     <td>{{item.address}}</td>
                     <td>{{item.purchase_price}}</td>
                     <td><span class="badge bg-success">審査中</span></td>
+                    <td><a href="{% url 'item-check' item.pk %}">審査をする</td>
                   </tr>
                   {% endfor %}
                 </tbody>
