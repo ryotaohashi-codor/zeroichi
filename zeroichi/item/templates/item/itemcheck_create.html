@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<form method="post">{% csrf_token %}
+<label>
+案件名
+</label>
+<input class='form-control' value='{{item.title}}'>
+<label>
+住所
+</label>
+<input class='form-control' value='{{item.address}}' readonly>
+<label>
+面積
+</label>
+<input class='form-control' value='{{item.size}}' readonly>
+<label>
+入札価格
+</label>
+<input class='form-control' value='{{item.purchase_price}}' readonly>
+<label>
+想定利益
+</label>
+<input class='form-control' value='{{item.estimated_profit}}' readonly>
+<label>
+コスト
+</label>
+<input class='form-control' value='{{item.cost}}' readonly>
+<label>
+背景
+</label>
+<input class='form-control' value='{{item.project_background}}' readonly>
+<label>
+申請日
+</label>
+<input class='form-control' value='{{item.applied_date}}' readonly>
+<label>
+入札額
+</label>
+<input type='number' class='form-control' name='order_price'>
+<label>
+コメント
+</label>
+<textarea class='form-control' name='comment' rows='5'></textarea>
+<input type="hidden" name="item" value="{{ item.id }}">
+
+<button type="submit">コメントする</button>
+</form>
+{% endblock content %}
