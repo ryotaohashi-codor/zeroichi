@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% block content %}
-<form method="post">{% csrf_token %}
+<form method="POST">{% csrf_token %}
 <label>
 案件名
 </label>
-<input class='form-control' value='{{item.title}}'>
+<input class='form-control' value='{{item.title}}' readonly>
 <label>
 住所
 </label>
@@ -38,11 +38,20 @@
 </label>
 <input type='number' class='form-control' name='order_price'>
 <label>
+  ステータス
+</label>
+<select name="status">
+  <option value="1">申請中</option>
+  <option value="2">承認</option>
+  <option value="3">却下</option>
+</select>
+<br>
+<label>
 コメント
 </label>
 <textarea class='form-control' name='comment' rows='5'></textarea>
-<input type="hidden" name="item" value="{{ item.id }}">
+<input name='item' value="{{ item.id }}">
+<input type="submit" value='送信'>
 
-<button type="submit">コメントする</button>
 </form>
 {% endblock content %}

@@ -12,7 +12,7 @@ class Item(models.Model):
   project_background = models.TextField()
   applied_date = models.DateField(auto_now=True)
   STATUS_CHOICE = ((0,'申請中'),(1, '承認'),(2, '却下'))
-#  status = models.IntegerField(choices=STATUS_CHOICE, default=0)
+  status = models.IntegerField(choices=STATUS_CHOICE, default=0)
   def __str__(self):
     return self.title
 

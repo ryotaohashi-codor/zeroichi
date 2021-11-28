@@ -43,7 +43,7 @@
                     <td>{{item.title}}</td>
                     <td>{{item.address}}</td>
                     <td>{{item.purchase_price}}</td>
-                    <td><span class="badge bg-success">審査中</span></td>
+                    <td><span class="badge bg-success">{{item.status}}</span></td>
                     <td><a href="{% url 'item-check' item.pk %}">審査をする</td>
                   </tr>
                   {% endfor %}
