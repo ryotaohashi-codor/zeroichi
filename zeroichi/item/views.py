@@ -13,10 +13,9 @@ class ItemListView(ListView):
 
 
 class ItemCreateView(CreateView):
-  form_class = ItemCheckForm
   model = Item
   template_name = 'item/item_create.html'
-  fields = ('title', 'address', 'size', 'purchase_price', 'estimated_profit','cost', 'project_background')
+  fields = '__all__'
   success_url = reverse_lazy('item-list')
 
 class ItemCheckView(CreateView):
@@ -30,10 +29,4 @@ class ItemCheckView(CreateView):
     context['item'] = Item.objects.get(pk=self.kwargs['item_id'])
     return context
 
-  def form_valid(self, form):
-    context = self.get_context_data()
-    status = form.cleaned_data['status']
-    context['item'].status = int(status)
-    context['item'].save()
-    return super().form_valid(form)
     
