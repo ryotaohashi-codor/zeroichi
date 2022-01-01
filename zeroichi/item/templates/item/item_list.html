@@ -44,7 +44,11 @@
                     <td>{{item.address}}</td>
                     <td>{{item.purchase_price}}</td>
                     <td><span class="badge bg-success">{{item.status}}</span></td>
+                    {% if not item.itemcheck %}
                     <td><a href="{% url 'item-check' item.pk %}">審査をする</td>
+                    {% else %}
+                    <td>審査済み</td>
+                    {% endif %}
                   </tr>
                   {% endfor %}
                 </tbody>
